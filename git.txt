@@ -1,0 +1,31 @@
+git1: There was a time when apps were extremely buggy. People decided they needed
+backups! Version control, gives ability to revert to any state you want (before the adding login
+feature, previous version, etc)
+● Commands:
+○ init, status, add, commit, checkout, log
+●
+● Concepts:
+○ staged change, commitIds
+
+Git2:
+● Commands:
+○ branch, log,
+● Concepts:
+○ branch
+○ Rebase master: Find common common commit Id between master and current
+branch. Apply all of the new commits in master branch. Apply current branch’s
+commits.
+■ Replace master with any branch.
+■ Questions:
+○ what would it mean... to git checkout branchName?
+
+Git3: Storing your repository online gives people around the world access to your code.
+Example: Google has offices all around the world
+● Remote
+○ Create account with repository hosting companies: github, gitlab, bitbucket.
+○ On your computer, create an ssh key. Go to your profile and add id_rsa.pub
+■ This allows hosting to identify your computer
+
+● Commands:
+○ remote add name url
+○ push remotename branch

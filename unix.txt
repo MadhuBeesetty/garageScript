@@ -1,0 +1,19 @@
+unix: a command line interface where you can do some of the normal things like drag and drop,
+right-click and create folder, copying, and moving files. When computers first started, everything
+on a computer has to be done in command line, you had to type out what you want to do. Bill
+Gates (and Steve Jobs) decided that more people understand the computer if there was a
+simple visual interface where users can interact with. Although it may seems plain, using
+command line is much faster than manually dragging and dropping files and folders and lets you
+do much more. You can use Unix to manipulate the data on your computers such as files and
+  folders through commands. Here are some most common commands that you must know to be
+  proficient:
+  ● Commands:
+  ○ pwd, ls, mkdir, cd, touch, rm, cp, mv
+  ■ Options: -r, -rf
+
+  ● Concepts:
+  ○ .. vs .
+  ○ ~ ○ sudo
+
+  A command that might be helpful is: top. It allows you to see what processes are running on
+  your computer.
