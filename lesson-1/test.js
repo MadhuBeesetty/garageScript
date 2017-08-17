@@ -1,3 +1,4 @@
+//test file
 const m =require('./solu.js');
 const add =(x,y,z)=>{
   if (m(x,y)==z){
