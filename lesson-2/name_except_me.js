@@ -4,7 +4,7 @@ const name =(err,files)=>{
   files.forEach((ele)=>{
     if(ele !== "madhub")
       list=list+" "+ele;
-    fs.writeFile('/home/madhub/garagescript/lesson-2',list,()=>{});
+    fs.writeFile('/home/madhub/garagescript/lesson-2/names.txt',list,()=>{});
   });
     console.log(list);
 }
