@@ -1,10 +1,10 @@
-const a =require("fs");
+const readfile =require("fs");
 const name =(err,files)=>{
-  let list;
+  let list=" ";
   files.forEach((ele)=>{
     if(ele !== "madhub")
     list=list+" "+ele;
   });
     console.log(list);
 }
-a.readdir('/home',name);
+readfile.readdir('/home',name);
