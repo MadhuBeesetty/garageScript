@@ -1,6 +1,6 @@
-const add =(a,b)=>{
-  const c=(a+b);
-  return c;
+const add =(input1,input2)=>{
+  const ans=(input1+input2);
+  return ans;
 };
 module.exports =add;
 
