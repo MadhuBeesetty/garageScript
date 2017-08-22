@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  Name:<input type="text" id="a1" />
+  Comment:<input type="text" id="a2" />
+  <input type="submit" id="b1" />
+<div>
+  <pre id="c1"/>
+  </div>
+  <script>
+const button =document.getElementById("b1");
+button.onclick=()=>{
+  const name=document.getElementById("a1").value;
+  const comment=document.getElementById("a2").value;
+  const xhttp=new XMLHttpRequest();
+  xhttp.open('get', `/XMLHttpRequest?a1=${name}&a2=${comment}`);
+  xhttp.send();
+}
+const getChatFile=()=>{
+const xhttp=new XMLHttpRequest();
+xhttp.open('get','/notes.txt');
+xhttp.onreadystatechange=()=>{
+  if(xhttp.responseText){
+    const content = document.getElementById('c1');
+    content.innerHTML=xhttp.responseText;
+  }
+}
+xhttp.send();
+}
+window.setInterval(getChatFile,1000);
+  </script>
+</body>
+</html>
