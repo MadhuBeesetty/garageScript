@@ -5,19 +5,19 @@
   <title></title>
 </head>
 <body>
-  Name:<input type="text" id="a1" />
-  Comment:<input type="text" id="a2" />
-  <input type="submit" id="b1" />
+  Name:<input type="text" id="myName" />
+  Comment:<input type="text" id="myComment" />
+  <input type="submit" id="button" />
 <div>
-  <pre id="c1"/>
+  <pre id="chat"/>
   </div>
   <script>
-const button =document.getElementById("b1");
+const button =document.getElementById("button");
 button.onclick=()=>{
-  const name=document.getElementById("a1").value;
-  const comment=document.getElementById("a2").value;
+  const name=document.getElementById("myName").value;
+  const comment=document.getElementById("myComment").value;
   const xhttp=new XMLHttpRequest();
-  xhttp.open('get', `/XMLHttpRequest?a1=${name}&a2=${comment}`);
+  xhttp.open('get', `/XMLHttpRequest?myName=${name}&myComment=${comment}`);
   xhttp.send();
 }
 const getChatFile=()=>{
@@ -25,7 +25,7 @@ const xhttp=new XMLHttpRequest();
 xhttp.open('get','/notes.txt');
 xhttp.onreadystatechange=()=>{
   if(xhttp.responseText){
-    const content = document.getElementById('c1');
+    const content = document.getElementById('chat');
     content.innerHTML=xhttp.responseText;
   }
 }
