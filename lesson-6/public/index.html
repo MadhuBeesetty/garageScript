@@ -12,12 +12,12 @@
   <pre id="chat"/>
   </div>
   <script>
-const button =document.getElementById("button");
-button.onclick=()=>{
+const input =document.getElementById("button");
+input.onclick=()=>{
   const name=document.getElementById("myName").value;
   const comment=document.getElementById("myComment").value;
   const xhttp=new XMLHttpRequest();
-  xhttp.open('get', `/XMLHttpRequest?myName=${name}&myComment=${comment}`);
+  xhttp.open('get', `/madhu?myName=${name}&myComment=${comment}`);
   xhttp.send();
 }
 const getChatFile=()=>{
