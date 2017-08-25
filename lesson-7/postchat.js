@@ -7,7 +7,6 @@ app.use(express.static('public'));
 app.use(bodyparser.json());
 
 app.post('/submit',(req,res) => {
-  fs.appendFile('/home/madhub/garagescript/lesson-7/public/notes.txt',`/n name: ${req.body.name} comment: ${req.body.comment} \n`);
-  res.send('got the post request');
+  fs.appendFile('/home/madhub/garagescript/lesson-7/public/notes.txt', `name: ${req.body.name} comment: ${req.body.comment}`);
 });
 
