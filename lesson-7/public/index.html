@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
- Name: <input type="TEXT" id="nameInput" />
- Comment:  <input type="TEXT" id="commentInput" />
-  <input type="SUBMIT" id="button" />
-  <div>
-    <pre id="chat" />
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+  <body>
+    Name: <input type="TEXT" id="nameInput" />
+    Comment:  <input type="TEXT" id="commentInput" />
+    <input type="SUBMIT" id="button" />
+    <div>
+      <pre id="chat" />
     </div>
 <script>
 const button = document.getElementById('button');
@@ -19,26 +19,24 @@ button.onclick =() =>{
   const xhttp = new XMLHttpRequest();
   xhttp.open('post', '/submit');
   xhttp.setRequestHeader('content-type','application/json');
-  xhttp.send(JSON.stringify({
-    name,
-    comment,
-  }));
-}
+  xhttp.send(JSON.stringify({name,Comment}
+   ));
+};
 
 const getInboxFile = () => {
-const xhttp = new XMLHttpRequest();
-xhttp.open('GET', '/inbox.txt');
-xhttp.onreadystatechange = () => {
-  if(xhttp.responseText){
-    const content = document.getElementById("chat");
-    content.innerhtml=xhttp.responseText;
+  const xhttp = new XMLHttpRequest();
+  xhttp.open('GET', '/inbox.txt');
+  xhttp.onreadystatechange = () => {
+    if(xhttp.responseText){
+      const content = document.getElementById("chat");
+      content.innerhtml=xhttp.responseText;
+    }
   }
+  xhttp.send();
 }
-xhttp.send();
-}
-window.setInterval(getInboxFile, 1000);
+  window.setInterval(getInboxFile, 1000);
 
 </script>
-</body>
+  </body>
 </html>
 
