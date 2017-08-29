@@ -47,7 +47,6 @@ navigator.mediaDevices.getUserMedia({
   video:true,
   audio:false
 }).then((mediaStream)=>{
-  console.log("hi");
   video.srcObject =mediaStream;
   video.play();
 }).catch((err)=>{
