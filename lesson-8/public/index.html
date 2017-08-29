@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+  <body>
+    Name:<input type="text" id="inputName" />
+    Comment:<input type="text" id="commentInput" />
+    SubmitButton:<input type="submit" id="button" />
+    <br />
+    captureButton: <input type="submit" id="clickButton" />
+    <br />
+    <div>
+      <pre id = "chatInput"></pre>
+      <video id = 'v1'></video>
+      <canvas width = 400 height =400 id="canvasID" />
+    </div>
+    <script>
+// defining submit button //
+const button=document.getElementById("button");
+button.onclick = () => {
+  const name =document.getElementById("inputName").value;
+  const comment =document.getElementById("commentInput").value;
+  const xhttp = new XMLHttpRequest();
+  xhttp.open('POST', '/madhu');
+  xhttp.setRequestHeader('content-type', 'application/json');
+  xhttp.send(JSON.stringify({name,comment})
+      );
+}
+//creating chat file//
+const getInboxFile = () => {
+  const xhttp= new XMLHttpRequest();
+  xhttp.open('GET', '/notes.txt');
+  xhttp.onreadystatechange = () => {
+    if(xhttp.responseText){
+      const display = document.getElementById('chatInput');
+      display.innerHTML=xhttp.responseText;
+    }
+  }
+  xhttp.send();
+}
+
+//video fuctioning//
+const video=document.getElementById("v1");
+navigator.mediaDevices.getUserMedia({
+  video:true,
+  audio:false
+}).then((mediaStream)=>{
+  video.srcObject =mediaStream;
+  video.play();
+}).catch((err)=>{
+  console.log(err);
+});
+// defining button to click picture //
+const click=document.getElementById("clickButton");
+click.onclick = () => {
+  const canvas = document.getElementById("canvasID");
+  const context = canvas.getContext('2d');
+  context.drawImage(video,0,0);
+  const dataURL = canvas.toDataURL('image/png');
+  const xhttp= new XMLHttpRequest();
+  xhttp.open('post','/pics');
+  xhttp.setRequestHeader('content-type','application/jason');
+  xhttp.send(JSON.stringify({
+    canvas: dataURL,
+  }));
+}
+window.setInterval(getInboxFile, 1000);
+    </script>
+  </body>
+</html>
