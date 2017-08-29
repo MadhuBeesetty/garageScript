@@ -12,7 +12,7 @@
     captureButton: <input type="submit" id="clickButton" />
     <br />
     <div>
-         <pre id = "chatInput"></pre>
+      <pre id = "chatInput"></pre>
       <video id = 'v1'></video>
       <canvas width = 400 height =400 id="canvasID" />
     </div>
@@ -26,7 +26,7 @@ button.onclick = () => {
   xhttp.open('POST', '/madhu');
   xhttp.setRequestHeader('content-type', 'application/json');
   xhttp.send(JSON.stringify({name,comment})
-   );
+      );
 }
 //creating chat file//
 const getInboxFile = () => {
