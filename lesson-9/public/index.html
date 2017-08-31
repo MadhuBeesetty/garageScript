@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+  <body>
+    Name:  <input type="text" id="myName" />
+    Comment: <input type="text" id="myComment" />
+    Submit: <input type="submit" id="button" />
+    <br>
+    click here to see magic: <input type="submit" id="clickButton" />
+    </br>
+    <div>
+      <pre id="textInput"></pre>
+      <video id="video" width = "500" height = "500" ></video>
+      <canvas width= 500 height= 500 id="canvas"></canvas>
+    </div>
+    <script>
+const button=document.getElementById("button");
+button.onclick = ()=>{
+  const name =document.getElementById("myName").value;
+  const comment =document.getElementById("myComment").value;
+  const xhttp=new XMLHttpRequest();
+  xhttp.open('post','/madhu');
+  xhttp.setRequestHeader('content-type','application/json');
+  xhttp.send(JSON.stringify({name,comment}));
+}
+
+//*displaying all chat files *//
+const getInboxFiles =() => {
+  const xhttp = new XMLHttpRequest();
+  xhttp.open('get','/notes.txt');
+  xhttp.onreadystatechange = () =>{
+    if (xhttp.responseText){
+      const chat=document.getElementById("textInput");
+      chat.innerHTML=xhttp.responseText;
+    }
+  }
+  xhttp.send();
+}
+
+//*camera*//
+const video = document.getElementById("video");
+navigator.mediaDevices.getUserMedia({
+  video:true,
+  audio:false
+}).then((mediaStream) =>{
+  video.srcObject =mediaStream;
+  video.play();
+}).catch((err) => {
+  console.log("err");
+});
+
+//* taking a picture *//
+const button2 =document.getElementById("clickButton");
+button2.onclick=()=>{
+  const name =document.getElementById("myName").value;
+  const comment =document.getElementById("myComment").value;
+  const canvas =document.getElementById("canvas");
+  const context =canvas.getContext("2d");
+  context.drawImage(video,0,0);
+  const dataURL =canvas.toDataURL('image/png').replace('data:image/png;base64',"");
+  const xhttp =new XMLHttpRequest();
+  xhttp.open('post','/pic');
+  xhttp.setRequestHeader('content-type','application/json');
+  xhttp.send(JSON.stringify({data: dataURL,name,comment}));
+};
+window.setInterval(getInboxFiles, 1000);
+
+    </script>
+  </body>
+</html>
