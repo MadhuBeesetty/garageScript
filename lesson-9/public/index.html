@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-Name:  <input type="text" id="myName" />
-Comment: <input type="text" id="myComment" />
-Submit: <input type="submit" id="button" />
-<br>
-click here to see magic: <input type="submit" id="clickButton" />
-</br>
-<div>
-  <pre id="textInput"></pre>
-  <video id="video" width = "500" height = "500" ></video>
-  <canvas width= 500 height= 500 id="canvas"></canvas>
-  </div>
-  <script>
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+  <body>
+    Name:  <input type="text" id="myName" />
+    Comment: <input type="text" id="myComment" />
+    Submit: <input type="submit" id="button" />
+    <br>
+    click here to see magic: <input type="submit" id="clickButton" />
+    </br>
+    <div>
+      <pre id="textInput"></pre>
+      <video id="video" width = "500" height = "500" ></video>
+      <canvas width= 500 height= 500 id="canvas"></canvas>
+    </div>
+    <script>
 const button=document.getElementById("button");
 button.onclick = ()=>{
   const name =document.getElementById("myName").value;
@@ -37,7 +37,7 @@ const getInboxFiles =() => {
       chat.innerHTML=xhttp.responseText;
     }
   }
-xhttp.send();
+  xhttp.send();
 }
 
 //*camera*//
@@ -67,7 +67,7 @@ button2.onclick=()=>{
   xhttp.send(JSON.stringify({data: dataURL,name,comment}));
 };
 window.setInterval(getInboxFiles, 1000);
-      
-  </script>
-</body>
+
+    </script>
+  </body>
 </html>
