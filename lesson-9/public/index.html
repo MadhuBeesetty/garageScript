@@ -13,7 +13,7 @@ click here to see magic: <input type="submit" id="clickButton" />
 </br>
 <div>
   <pre id="textInput"></pre>
-  <video id="v" width = "500" height = "500" ></video>
+  <video id="video" width = "500" height = "500" ></video>
   <canvas width= 500 height= 500 id="canvas"></canvas>
   </div>
   <script>
@@ -41,7 +41,7 @@ xhttp.send();
 }
 
 //*camera*//
-const video = document.getElementById("v");
+const video = document.getElementById("video");
 navigator.mediaDevices.getUserMedia({
   video:true,
   audio:false
@@ -64,10 +64,7 @@ button2.onclick=()=>{
   const xhttp =new XMLHttpRequest();
   xhttp.open('post','/pic');
   xhttp.setRequestHeader('content-type','application/json');
-  xhttp.send(JSON.stringify({
-    data: dataURL,
-    name,
-    comment}));
+  xhttp.send(JSON.stringify({data: dataURL,name,comment}));
 };
 window.setInterval(getInboxFiles, 1000);
       
