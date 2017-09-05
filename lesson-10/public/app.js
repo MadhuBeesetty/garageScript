@@ -1,13 +1,13 @@
 $('#button').click(() => {
-  const name = $('#myName').val();
-  const comment = $('#myComment').val();
+  const memename = $('#myName').val();
+  const memecomment = $('#myComment').val();
   $.ajax({
     type: 'POST',
-    url: '/submit',
+    url: '/sendmessage',
     contentType: 'application/json',
     data: JSON.stringify({
-      name,
-      comment
+      memename,
+      memecomment
     }),
     success: (data) => {
       console.log('Success: ', data);
@@ -18,8 +18,7 @@ $('#button').click(() => {
 /* checking txt file every second */
 const getInboxFile = () => {
  $.get('/notes.txt', (data) => {
-    const content = $('#chat');
-    content.html(data);
+    $('#chat').html(data);
   });
 }
 window.setInterval(getInboxFile, 1000);
@@ -36,8 +35,8 @@ navigator.mediaDevices.getUserMedia({
 });
 /* Taking a picture */
 $('#selfie').click(() => {
-  const name = $('#myName').val();
-  const comment = $('#myComment').val();
+  const nameofpicture = $('#myName').val();
+  const commentonpicture = $('#myComment').val();
   // camera
   const canvas = $('#canvas')[0];
   const context = canvas.getContext('2d');
@@ -50,8 +49,8 @@ $('#selfie').click(() => {
     url: '/pics',
     data: JSON.stringify({
       canvas: dataURL,
-      name,
-      comment
+      nameofpicture,
+      commentonpicture
     }),
     success: (data) => {
       console.log('Success: ', data);
