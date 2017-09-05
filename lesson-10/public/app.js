@@ -1,5 +1,4 @@
 $('#button').click(() => {
-  console.log(mediaStream);
   const name = $('#myName').val();
   const comment = $('#myComment').val();
   $.ajax({
