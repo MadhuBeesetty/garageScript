@@ -1,17 +1,14 @@
 $('#button').click(() => {
-  const memename = $('#myName').val();
-  const memecomment = $('#myComment').val();
+  const memeName = $('#myName').val();
+  const memeComment = $('#myComment').val();
   $.ajax({
     type: 'POST',
     url: '/sendmessage',
     contentType: 'application/json',
     data: JSON.stringify({
-      memename,
-      memecomment
+      memeName,
+      memeComment
     }),
-    success: (data) => {
-      console.log('Success: ', data);
-    }
   });
 });
 
@@ -35,8 +32,8 @@ navigator.mediaDevices.getUserMedia({
 });
 /* Taking a picture */
 $('#selfie').click(() => {
-  const nameofpicture = $('#myName').val();
-  const commentonpicture = $('#myComment').val();
+  const nameOfPicture = $('#myName').val();
+  const commentOnPicture = $('#myComment').val();
   // camera
   const canvas = $('#canvas')[0];
   const context = canvas.getContext('2d');
@@ -46,16 +43,16 @@ $('#selfie').click(() => {
   // defining second button post request.
  $.ajax({
     type: 'POST',
-    url: '/pics',
+   url: '/sendingpic',
     data: JSON.stringify({
       canvas: dataURL,
-      nameofpicture,
-      commentonpicture
+      nameOfPicture,
+      commentOnPicture
     }),
+   contentType: 'application/json',
     success: (data) => {
       console.log('Success: ', data);
     },
-    contentType: 'application/json'
   });
 });
 
