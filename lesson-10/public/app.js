@@ -14,7 +14,7 @@ $('#button').click(() => {
 
 /* checking txt file every second */
 const getInboxFile = () => {
- $.get('/notes.txt', (data) => {
+  $.get('/notes.txt', (data) => {
     $('#chat').html(data);
   });
 }
@@ -41,15 +41,15 @@ $('#selfie').click(() => {
   const dataURL = canvas.toDataURL('image/png');
 
   // defining second button post request.
- $.ajax({
+  $.ajax({
     type: 'POST',
-   url: '/sendingpic',
+    url: '/sendingpic',
     data: JSON.stringify({
       canvas: dataURL,
       nameOfPicture,
       commentOnPicture
     }),
-   contentType: 'application/json',
+    contentType: 'application/json',
     success: (data) => {
       console.log('Success: ', data);
     },
