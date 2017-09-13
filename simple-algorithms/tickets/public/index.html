@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <p>total number of tickets:100</p>
+  How many tickets you want: <input type="text" id="tickets") />
+  Buy tickets: <input type="submit" id="buy" />
+  <div>
+ Number of remaining tickets: <pre id="left"/>
+  </div>
+<script>
+const button=document.getElementById("buy");
+let A=100;
+button.onclick =()=>{
+const ticket =document.getElementById("tickets").value;
+A=(A-ticket);
+console.log(A);
+const xhttp = new XMLHttpRequest();
+xhttp.open('POST','/madhu');
+xhttp.setRequestHeader('content-type','application/json');
+xhttp.send(JSON.stringify({A})
+ );
+}
+const display = ()=>{
+  const xhttp = new XMLHttpRequest();
+  xhttp.open('GET','/ticket.txt');
+  xhttp.onreadystatechange = () => {
+    if(xhttp.responseText){
+const remainingTickets =  document.getElementById("left")
+  const num = +xhttp.responseText;
+  if(num >= 0)
+  {remainingTickets.innerHTML=xhttp.responseText;}
+else
+{remainingTickets.innerHTML="Sold Out"};
+}}
+xhttp.send();
+}
+window.setInterval(display,2000);
+</script>
+</body>
+</html>
+
+
+
+
+
