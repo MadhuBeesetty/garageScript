@@ -13,15 +13,15 @@
   </div>
 <script>
 const button=document.getElementById("buy");
-let A=100;
+//let A=100;
 button.onclick =()=>{
 const ticket =document.getElementById("tickets").value;
-A=(A-ticket);
-console.log(A);
+//A=(A-ticket);
+console.log(ticket);
 const xhttp = new XMLHttpRequest();
 xhttp.open('POST','/madhu');
 xhttp.setRequestHeader('content-type','application/json');
-xhttp.send(JSON.stringify({A})
+xhttp.send(JSON.stringify({ticket})
  );
 }
 const display = ()=>{
@@ -31,9 +31,9 @@ const display = ()=>{
     if(xhttp.responseText){
 const remainingTickets =  document.getElementById("left")
   const num = +xhttp.responseText;
-  if(num >= 0)
+  if(num > 0)
   {remainingTickets.innerHTML=xhttp.responseText;}
-else
+  else
 {remainingTickets.innerHTML="Sold Out"};
 }}
 xhttp.send();
