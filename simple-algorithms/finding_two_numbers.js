@@ -1,3 +1,4 @@
+//findind maximum number in an array//
 const find = (arr,num) => {
   for (i=0; i< arr.length; i++){
     for (j=i+1; j< arr.length; j++){
