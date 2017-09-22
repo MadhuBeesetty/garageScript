@@ -1,3 +1,4 @@
+//findind two numbers whose sum is equal to the given number//
 const find = (arr,num) => {
   for (i=0; i< arr.length; i++){
     for (j=i+1; j< arr.length; j++){
