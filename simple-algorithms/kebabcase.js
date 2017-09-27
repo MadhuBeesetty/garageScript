@@ -1,11 +1,9 @@
-let output=" ";
-const convert = (a,i=0)=>{
+const convert = (a,i=0,output=" ")=>{
   let b=a[i];
-  if(i==(a.length))
-    {return output};
-  console.log(a.length);
-  if(i<a.length)
-  {
+  if(i==(a.length)){
+    return output
+  };
+  if(i<a.length){
     if( b == b.toLowerCase())
     {
       output = output+b;
@@ -16,7 +14,7 @@ const convert = (a,i=0)=>{
       output = output + "-" +b;
     }
   }
-  return convert(a, i+1);
+  return convert(a, i+1, output);
 }
 console.log(convert("madhuSudhan"));
 console.log(convert("maryChris"));
