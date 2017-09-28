@@ -3,13 +3,13 @@ const print = (a,b,i=1,c=" ")=>{
   if(i<=a){
    c=c+b;
     if(i==a){
-      console.log(c)
+      return(c)
     }
   return print(a,b,i+1,c);
   }
 }
-print(5,"hi");
-print(10,"madhu");
+console.log(print(5,"hi"));
+console.log(print(10,"madhu"));
 
 //just hello number of times//
 
