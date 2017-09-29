@@ -33,4 +33,4 @@ const max=(arr,i=0,maxx=arr[0])=>{
 }
 console.log(max([5,26,15]));
 console.log(max([5,3,8])); 
-  
+

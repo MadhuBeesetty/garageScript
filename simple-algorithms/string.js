@@ -1,11 +1,11 @@
 //printing a string n number of times//
 const print = (a,b,i=1,c=" ")=>{
   if(i<=a){
-   c=c+b;
+    c=c+b;
     if(i==a){
       return(c)
     }
-  return print(a,b,i+1,c);
+    return print(a,b,i+1,c);
   }
 }
 console.log(print(5,"hi"));
@@ -19,6 +19,6 @@ const print_hello=(a,i=1)=>{
     return print_hello(a,i+1);
   }
 }
-  print_hello(10);
+print_hello(10);
 
 
