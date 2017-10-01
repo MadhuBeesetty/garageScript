@@ -21,3 +21,16 @@ console.log(b);*/
 };
 console.log(find(0,[1,2,3,4,5]));*/
 
+//using recursion finding maximum in an array
+const max=(arr,i=0,maxx=arr[0])=>{
+  if(arr[i]>maxx){
+    maxx=arr[i]
+  }
+  if(i===(arr.length-1)){
+    return maxx;
+  }
+  return max(arr,i+1,maxx);
+}
+console.log(max([5,26,15]));
+console.log(max([5,3,8])); 
+
