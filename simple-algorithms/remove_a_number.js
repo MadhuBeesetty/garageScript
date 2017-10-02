@@ -1,3 +1,4 @@
+//remove a particular number from a set of array//
 const remove = (arr,b,i=0,neww=[])=>{
   if( arr[i] != b){
     neww.push(arr[i])

@@ -1,3 +1,4 @@
+// find out the least common multiple for two numbers//
 const cdf = (a,b,i=2,g=1)=>{
   if (a%i==0 && b%i==0){
     g = i;

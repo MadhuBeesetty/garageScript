@@ -1,3 +1,4 @@
+//finding the number of repetation of a particular number in a set of array//
 const repeat = (arr,b,i=0,num=0)=>{
   if (arr[i] == b){
     num = num+1
