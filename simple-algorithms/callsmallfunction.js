@@ -1,3 +1,4 @@
+// calling the function least number of times
 const func =()=>{
   console.log("madhu")
 }
