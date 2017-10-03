@@ -1,3 +1,4 @@
+// a simple function to call a function # number of times
 const funct = ()=>{
   console.log("madhu")
 }
