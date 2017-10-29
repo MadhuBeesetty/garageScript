@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <pre id ="pics" />
+  <script>
+let list = " ";
+$.get('/madhu',(pic)=>{
+  console.log("hi");
+  pic.forEach((e)=>{
+    list = list+`<img style=' margin-top:15px;width:60%;margin-left:20%;display:block' src='./photos/${e}'/>`
+  });
+  console.log(list);
+  $('#pics').html(list);
+});
+  </script>
+</body>
+</html>
