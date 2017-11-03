@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>redux</title>
+  </head>
+  <body>
+    <div>
+      your input<input type="text" id="text"/>
+      click me<input type="submit" id="button"/>
+    </div>
+    <div>
+      <pre id="display"/>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.2/redux.js"></script>
+      <script>
+//reducer
+const TDReducer=Redux.combineReducers({
+  todo:(state=[],action)=>{
+    if(action.type == 'add_todo'){
+      state.push(action.value);
+ return state;
+    }
+    return state;
+  }
+})
+//store
+       const TDstore=Redux.createStore(TDReducer);
+//render
+       const render=()=>{
+         let str="";
+         TDstore.getState().todo.forEach((ele)=>{
+           str=str+`<div>`+ele+`<div>`
+         })
+         document.getElementById('display').innerHTML=str;
+       }
+//dispatch
+       document.getElementById("button").onclick=()=>{
+         TDstore.dispatch({
+           type:'add_todo',
+                value:document.getElementById('text').value})
+      
+      // console.log(TDstore.getState().todo);
+       //document.getElementById("display").innerHTML=TDstore.getState().todo;
+      render();
+       };
+      </script>
+  </body>
+</html>
+
