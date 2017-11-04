@@ -1,0 +1,47 @@
+//a redux challenge to display addition of all numbers//
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <div>
+    enter a number<input type="text" id="number"/>
+    click me<input type="submit" id="button"/>
+    </div>
+    <div>
+      <pre id="display" />
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.2/redux.js"></script>
+      <script>
+//reducer
+const numberReducer=Redux.combineReducers({
+  sum:(state=[],action)=>{
+    if(action.type == 'result'){
+      state.push(action.value);
+      return state;
+    }
+    return state;
+  }
+})
+//store
+const sumStore=Redux.createStore(numberReducer);
+//render
+const addition = (total=0)=>{
+ sumStore.getState().sum.forEach((ele)=>{
+    total=total+ele;
+  });
+ document.getElementById('display').innerHTML=total;
+}
+//dispatch
+document.getElementById("button").onclick=()=>{
+  sumStore.dispatch({
+    type:'result',
+    value:+document.getElementById('number').value})
+ //   document.getElementById("display").innerHTML=sumStore.getState().result;
+addition();
+};
+      </script>
+</body>
+</html>
