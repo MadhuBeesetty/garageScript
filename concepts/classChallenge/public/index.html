@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <script>
+class ColorBlock{constructor(metric,color){
+  this.element = document.createElement('div');
+  document.body.appendChild(this.element);
+  this.metric = metric;
+  this.element.style.backgroundColor = color;
+  this.element.style.display = "inline-block";
+  this.draw();
+  this.element.onclick = this.grow.bind(this);
+}
+grow(){
+  this.metric +=10;
+  this.draw();
+}
+draw(){
+  this.element.style.width = this.metric*10+'px';
+  this.element.style.height = '80px';
+}
+};
+const vari = new ColorBlock(8,'green');
+</script>
+</body>
+</html>
