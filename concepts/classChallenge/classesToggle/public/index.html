@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>classes challenge</title>
+    <link rel="stylesheet" href="classes.css"> 
+    <style>
+.square{
+  height: 100px;
+  width: 100px;
+  border: 2px solid black;
+  display: inline-block;
+}
+#content{
+  width: 600px;
+}
+    </style>
+  </head>
+  <body>
+    <div id='content'></div>
+    <script>
+class Toggle {
+  constructor(number){
+    this.element=document.createElement('div');
+    this.element.className='square';
+    this.element.style.backgroundColor='green';
+    this.element.id = number;
+    this.element.innerHTML = `<p align="center" >${number}</p>`;
+    document.getElementById('content').appendChild(this.element);
+    this.element.onclick=()=>{
+      let arr = [];
+      console.log(number);
+      if(number%5 == 0){
+        arr.push(number-1,number-2,number-6,number+4);
+      }else if(number%5 == 1) { arr.push(number-1,number,number-6,number+4);
+      }else if 
+        (number<6) {arr.push(number,number-1,number-2,number+4);
+        } else if
+          (number>20) {arr.push(number,number-1,number-2,number-6);
+          }else{
+            arr.push(number,number-1,number-2,number-6,number+4);
+          }
+        const toggleAll =(i=0)=>{
+          if(i==arr.length)return;
+          // document.getElementById(arr[i]).change();
+          squaresArr[arr[i]].change();
+          return toggleAll(i+1);
+        };
+        toggleAll();
+    };
+  };
+  change(){
+    if(this.element.style.backgroundColor =='red'){
+      this.element.style.backgroundColor='green';
+    }else{
+      this.element.style.backgroundColor='red';
+    }
+  }
+}
+let squaresArr  = [];
+for(i=1;i<=25;i++){
+  squaresArr.push(new Toggle(i));
+}
+    </script>
+  </body>
+</html>
