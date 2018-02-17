@@ -1,31 +1,22 @@
 // toggle for just one box //
+import='./classes.css';
 let bool = true;
   class Toggle {
-    constructor(color,metric){
+    constructor(number){
+      this.number=number;
       this.element=document.createElement('div');
+      this.element.className='green';
       document.body.appendChild(this.element);
-      this.element.style.backgroundColor=color;
-      this.draw();
       this.element.onclick=()=>{
-        if(bool == true){
-          bool = false;
-        }else{
-          bool = true;
-        };
-      this.change();
+      this.element.change();
       };
     }
-    draw(){
-      this.element.style.width ='80px';
-      this.element.style.height ='80px';
-    }
       change(){
-        if(bool == true){
+        if(this.element.style.backgroundColor =='red'){
         this.element.style.backgroundColor='green';
         }else{
           this.element.style.backgroundColor='red';
         }
       }
     }
-      const a = new Toggle('green',8);
-    this.element.onclick = a.change;
+      const a = new Toggle('1');
